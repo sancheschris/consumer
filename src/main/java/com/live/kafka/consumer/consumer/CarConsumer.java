@@ -17,9 +17,9 @@ public class CarConsumer {
     @Value(value = "${spring.kafka.consumer.group-id}")
     private String groupId;
 
-    @KafkaListener(topics = "${topic.name}", groupId = "${spring.kafka.consumer.group-d", containerFactory = "carKafkaListenerContainerFactory")
+    @KafkaListener(topics = "${topic.name}", groupId = "${spring.kafka.consumer.group-id", containerFactory = "carKafkaListenerContainerFactory")
     public void ListenTopicCar(ConsumerRecord<String, CarDTO> record) {
-        log.info("Received Message" + record.partition());
+        log.info("Received Message " + record.partition());
         log.info("Received Message" + record.value());
 
     }
